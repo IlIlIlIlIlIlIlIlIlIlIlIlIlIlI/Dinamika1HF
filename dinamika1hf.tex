@@ -1,0 +1,72 @@
+\documentclass[10pt, a4paper]{article} 
+\usepackage[
+a4paper,
+left=2cm,      
+right=2cm,     
+top=3cm,     
+bottom=3cm,    
+headheight=4em 
+]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,xfrac}
+\usepackage{fancyhdr}
+\usepackage[hungarian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{natbib}
+\usepackage{empheq}
+\usepackage{wrapfig}
+\usepackage{chngcntr}
+\usepackage{physics}
+\usepackage{mathtools}
+\counterwithin{figure}{section}
+\usepackage{titlesec}
+\usepackage{dsfont}
+\usepackage{pdfpages}
+\usepackage{t1enc}
+\usepackage{tabto}
+\graphicspath{ {./images/} }
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage. oldal}
+\lhead{
+	\textbf{Dinamika 1. Házi feladat}
+	\\Kindlik Dániel
+	\tabto{400pt}\includegraphics[width=80pt]{ alairas.png }
+	\\AHU27Z
+	}
+\newcounter{feladatcounter}
+\newcommand{\feladat}{
+	\stepcounter{feladatcounter}
+	\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries
+			{\arabic{feladatcounter}. Feladat:}}]\end{trivlist}}
+\setlength{\parskip}{0.22em} 
+
+\begin{document}
+	\includepdf{elolap.pdf}
+	\feladat
+	\feladat
+	a
+	a
+	a
+	a
+	
+	a
+	a
+	a
+	
+	a
+	a
+	a
+	a
+	a
+	a
+\end{document}
