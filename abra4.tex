@@ -1,0 +1,115 @@
+\documentclass[tikz,border=3pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usepackage{graphicx}
+
+\begin{document}
+	\pgfmathsetmacro{\N}{2.5} 
+	\pgfmathsetmacro{\M}{0.5} 
+	% The x=1cm, y=1cm units are used again, and all coordinates are 10x larger 
+	% than the previous 1mm code, achieving the final 10x scale.
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm, font=\scriptsize] 
+		\begin{axis}[
+			axis lines=middle,
+			axis line style={thick},
+			x=1cm,y=1cm, 
+			% Axis limits are the previous * 10
+			xmin=-1.1,
+			xmax=4.1,
+			ymin=-6.3,
+			ymax=2.5,
+			xlabel={\tiny $x$},
+			ylabel={\ $y$},
+			xtick={-3,-2,...,4},
+			ytick={-6,-5,...,3},
+			extra x ticks={-3.5,-2.5,...,3.5},
+			extra x tick labels={},
+			extra y ticks={-6.5,-5.5,...,1.5},
+			extra y tick labels={},
+			tick label style={font=\tiny},
+			]
+			
+			
+			\draw [line width=1pt,fill=black,fill opacity=0.37] (2.1491857992457702,-1.2) circle (1.2cm); 
+			
+			\draw [line width=1pt,fill=black,fill opacity=0.11] (2.1491857992457702,0.4) circle (0.4cm); 
+			
+			\draw [line width=1.2pt] (-0.29583278321848965,-0.634415450925655)-- (0,0);
+			\draw [line width=1.2pt] (0,0)-- (1.8027756377319948,0.6);
+			
+			\draw [line width=1.2pt] (-0.29583278321848965,-0.634415450925655)-- (-0.4294666109065957,-0.8009221549646055);
+			\draw [line width=1.2pt] (-0.4294666109065957,-0.8009221549646055)-- (-0.1614851413704704,-0.800346742964898);
+			\draw [line width=1.2pt] (-0.1614851413704704,-0.800346742964898)-- (-0.29583278321848965,-0.634415450925655);
+			
+			\draw[pattern=north east lines, pattern color=black, draw=none]
+			(axis cs:-0.4294666109065957,-0.800346742964898) rectangle (axis cs:-0.1614851413704704,-0.900346742964898);
+			
+			\draw [line width=1pt,dash pattern=on 1pt off 2pt] (1.8027756377319948,0.6)-- (2.1491857992457702,0.4);
+			\draw [line width=1pt,dash pattern=on 1pt off 2pt] (2.1491857992457702,0.4)-- (2.1491857992457702,0);
+			\begin{normalsize}
+				\draw [fill=white, line width=1pt] (0,0) circle (1.5pt);
+				\draw[color=black] (-0.12787356851102264,0.2483946834953474) node {$B$};
+				
+				\draw [fill=white, line width=1pt] (-0.29583278321848965,-0.634415450925655) circle (1.5pt);
+				\draw[color=black] (-0.14078924975748524,-0.5903826719406648) node {$A$};
+				
+				\draw [fill=white, line width=1pt] (1.8027756377319948,0.6) circle (1.5pt);
+				\draw[color=black] (1.567882884580667,0.7030077775135424) node {$C$};
+				
+				\draw [fill=red, line width=1pt] (2.1491857992457702,0) circle (1.5pt);
+				\draw[color=black] (2.252123504110155,0.1597700442826748) node {$D$};
+				
+				\draw [fill=red, line width=1pt] (0.9013878188659974,0.3) circle (1.5pt);
+				\draw[color=black] (1.064941267726836,0.5519285331032532) node {$S_2$};
+				
+				\draw [fill=red, line width=1pt] (2.1491857992457702,0.4) circle (1.5pt);
+				\draw[color=black] (2.2145399302519367,0.6208874677487989) node {$S_{3}$};
+				
+				%\draw[color=black] (-0.42253708503352093,-0.2923884445379036) node {(1)};
+				%\draw[color=black] (0.50728133575694716,0.3522246494802914) node {(2)};
+				%\draw[color=black] (2.510337489778284,0.8871720389313595) node {(3)};
+			\end{normalsize}
+			\draw[-stealth, blue] (0,0) -- ({-0.317*\N},{0.148*\N}); %vB
+			\draw[-stealth, blue] (0.9013878188659974,0.3) -- (0.9013878188659974-0.271*\N, 0.3+0.00907*\N); %vS2
+			\draw[-stealth, blue] (1.8027756377319948,0.6) -- (1.8027756377319948-0.225*\N, 0.6-0.1298*\N); %vC
+			\coordinate (A) at (0, 0);
+			\coordinate (B) at (-0.317,0.148);
+			\draw[red, dashed] (A) -- ($(A)!3cm!-90:(B)$);
+			\coordinate (C) at (0.9013878188659974,0.3);
+			\coordinate (D) at (0.9013878188659974-0.271, 0.3+0.00907);
+			\draw[red, dashed] (C) -- ($(C)!3cm!-90:(D)$);
+			\coordinate (E) at (1.8027756377319948,0.6);
+			\coordinate (F) at (1.8027756377319948-0.225, 0.6-0.1298);
+			\draw[red, dashed] (E) -- ($(E)!3cm!-90:(F)$);
+			\draw [fill=red, line width=1pt] (0.960258884379985,2.05928182303366) circle (1.5pt); %P2
+			
+			\draw[-stealth, orange] (0,0) -- ({-0.7396*\M},{-1.586*\M}); %aB
+			\draw[-stealth, orange] (0.9013878188659974,0.3) -- (0.9013878188659974-1*\M, 0.3-1.51*\M); %aS2
+			\draw[-stealth, orange] (1.8027756377319948,0.6) -- (1.8027756377319948-1.266*\M, 0.6-1.433*\M); %aC
+			\coordinate (G) at (0, 0);
+			\coordinate (H) at (-0.7396,-1.586);
+			\draw[red, dashed] (G) -- ($(G)!7cm!34.6659551666522:(H)$);
+			\coordinate (I) at (0.9013878188659974,0.3);
+			\coordinate (J) at (0.9013878188659974-1, 0.3-1.51);
+			\draw[red, dashed] (I) -- ($(I)!7cm!34.6659551666522:(J)$);
+			\coordinate (K) at (1.8027756377319948,0.6);
+			\coordinate (L) at (1.8027756377319948-1.266, 0.6-1.433);
+			\draw[red, dashed] (K) -- ($(K)!7cm!34.6659551666522:(L)$);
+			\draw [fill=red, line width=1pt] (0.9013878188659974+0.117130238833201,0.3-6.27996870783866) circle (1.5pt); %G2
+			
+			\draw[color=black] ({-0.317*\N-0.05},{0.148*\N+0.1}) node {$v_{B}$};
+			\draw[color=black] (0.9013878188659974-0.271*\N+0.4, 0.3+0.00907*\N+0.1) node {$v_{S_2}$};
+			\draw[color=black] (1.8027756377319948-0.225*\N, 0.6-0.1298*\N-0.1) node {$v_{C}$};
+			\draw[color=black] (0.960258884379985+0.2,2.05928182303366) node {$P_{2}$};
+			
+			\draw[color=black] ({-0.7396*\M-0.28},{-1.586*\M}) node {$a_{B}$};
+			\draw[color=black] (0.9013878188659974-1*\M+0.3, 0.3-1.51*\M-0.1) node {$a_{S_2}$};
+			\draw[color=black] (1.8027756377319948-1.266*\M+0.43, 0.6-1.433*\M+0.23) node {$a_{C}$};
+			\draw[color=black] (0.9013878188659974+0.117130238833201+0.3,0.3-6.27996870783866) node {$G_{2}$};
+		\end{axis}
+	\end{tikzpicture}
+\end{document}
